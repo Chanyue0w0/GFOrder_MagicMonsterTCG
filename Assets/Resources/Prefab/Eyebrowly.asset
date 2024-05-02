@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a9fc8f65fc0b24d8c1b0076672d8fc, type: 3}
+  m_Name: Eyebrowly
+  m_EditorClassIdentifier: 
+  name: Eyebrowly
+  description1: '"Charge(0 Mana):\nDeal 1 Damage to the front Opponent."'
+  description2: '"None"'
+  manaCost: 2
+  ability1_mana: 0
+  ability2_mana: 0
