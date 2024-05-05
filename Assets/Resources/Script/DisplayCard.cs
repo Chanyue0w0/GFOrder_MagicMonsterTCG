@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DisplayCard : MonoBehaviour
 {
 
-    public List<Card> displayCard = new List<Card>();
+    //public List<Card> displayCard = new List<Card>();
     public int displayID = 0;
 
     public int id;
