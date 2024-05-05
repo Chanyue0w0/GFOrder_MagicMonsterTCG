@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6491928174894451407}
-  - component: {fileID: 1817969052}
   - component: {fileID: 1495132891756722620}
   m_Layer: 5
   m_Name: Card
@@ -39,23 +38,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1817969052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6491928174894451404}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf438ad744d7a2b49bb8e6b6128757cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 17af546fce48d0f47997f81fbc47740a, type: 2}
-  nameText: {fileID: 6491928175260593027}
-  manaText: {fileID: 6491928176464759872}
-  description1_Text: {fileID: 6491928175841825288}
-  description2_Text: {fileID: 6491928176757780648}
 --- !u!114 &1495132891756722620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +50,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef7f273d62ac0c4da67d6b02adddbc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayCard:
+  - id: 0
+    cardName: 
+    cost: 0
+    mana: 0
+    ability1_power: 0
+    ability2_power: 0
+    ability1_Descrpition: 
+    ability2_Descrpition: 
+    drawXcards: 0
+    addXmaxMana: 0
+    thisImage: {fileID: 0}
+    color: 
+    returnXcards: 0
+    healXpower: 0
+    spell: 0
+    damageDealtBySpell: 0
   displayID: 0
   id: 0
   cardName: 
@@ -81,7 +80,7 @@ MonoBehaviour:
   costText: {fileID: 6491928176464759872}
   ability1_Text: {fileID: 6491928175841825288}
   ability2_Text: {fileID: 6491928176757780648}
-  artImage: {fileID: 0}
+  artImage: {fileID: 6491928176346815838}
 --- !u!1 &6491928175098348475
 GameObject:
   m_ObjectHideFlags: 0

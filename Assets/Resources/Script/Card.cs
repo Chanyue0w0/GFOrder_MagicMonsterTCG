@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 [System.Serializable]
 
 public class Card
@@ -17,6 +18,8 @@ public class Card
     public int drawXcards;//?
     public int addXmaxMana;//?
 
+    // 使用字符串來儲存圖片路徑
+    public string imagePath;
     public Sprite thisImage;
 
     public string color;//?
@@ -28,14 +31,22 @@ public class Card
     public bool spell;//?
     public int damageDealtBySpell;//?
 
+    public void LoadSprite()
+    {
+        if (!string.IsNullOrEmpty(imagePath))
+        {
+            thisImage = Resources.Load<Sprite>(imagePath);
+        }
+    }
+
     public Card()
     {
 
     }
 
-    public Card(int ID,string CardName,int Cost,int Ability1_Power,int Ability2_Power,string CardDescription1,string CardDescription2,
-        Sprite ThisImage,string Color,int DrawXcards,int AddXmaxMana,int ReturnXcards,
-        int HealXpower,bool Spell,int DamageDealtBySpell)
+    public Card(int ID, string CardName, int Cost, int Ability1_Power, int Ability2_Power,
+         string CardDescription1, string CardDescription2,
+        Sprite ThisImage,string Color,int DrawXcards,int AddXmaxMana,int ReturnXcards,int HealXpower,bool Spell,int DamageDealtBySpell)
     {
         id = ID;
         cardName = CardName;
@@ -45,6 +56,7 @@ public class Card
         ability1_Descrpition = CardDescription1;
         ability2_Descrpition = CardDescription2;
         thisImage = ThisImage;
+
         color = Color;
         drawXcards = DrawXcards;
         addXmaxMana = AddXmaxMana;
@@ -52,10 +64,6 @@ public class Card
         healXpower = HealXpower;
         spell = Spell;
         damageDealtBySpell = DamageDealtBySpell;
-
-
-
-
     }
 
 
