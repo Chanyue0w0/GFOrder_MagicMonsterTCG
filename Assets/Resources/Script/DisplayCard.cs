@@ -26,6 +26,10 @@ public class DisplayCard : MonoBehaviour
     public Image thisImage;
     public Image artImage;
 
+    public bool cardBack;//卡背是否啟用
+    public GameObject cardBackObject;
+    //public static bool staticCardBack;//卡背是否啟用 static ，以供全域使用，不須一直尋找並抓取該物件
+
 
     void Start()
     {
@@ -76,7 +80,16 @@ public class DisplayCard : MonoBehaviour
 
     void Update()
     {
-        
+        if (cardBack)
+            cardBackObject.SetActive(true);
+        else
+            cardBackObject.SetActive(false);
+        //staticCardBack = cardBack;
+        //if (cardBack != staticCardBack)
+        //{ 
+        //    staticCardBack = cardBack;
+        //    Debug.Log("staticCardBack updated to: " + staticCardBack);
+        //}
 
     }
 }
