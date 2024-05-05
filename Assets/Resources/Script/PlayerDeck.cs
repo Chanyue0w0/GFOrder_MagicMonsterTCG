@@ -10,6 +10,7 @@ public class PlayerDeck : MonoBehaviour
 
     public int x;
     public static int deckSize = 40;
+    public float DrawingWaitingTime = 0.5f;
 
     public GameObject CardToHand;
     public GameObject[] Clones;
@@ -32,20 +33,27 @@ public class PlayerDeck : MonoBehaviour
     void Update()
     {
         staticDeck = deck;
+
+        if(TurnSystem.startTurn)
+        {
+            StartCoroutine(Draw(1));
+            TurnSystem.startTurn = false;
+        }
+
     }
 
     IEnumerator StartGame()//Draw 5 Cards
     {
         for (int i = 0; i < 5; i++)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(DrawingWaitingTime);
 
             Instantiate(CardToHand, transform.position, transform.rotation);
         }
         //Debug.Log("deckSize" + deckSize);
     }
 
-    public void Shuffle()
+    public void Shuffle()//Draw Deck
     {
         for (int i = 0; i < deckSize; i++)
         {
@@ -56,4 +64,14 @@ public class PlayerDeck : MonoBehaviour
         }
     }
 
+    IEnumerator Draw(int x)//Draw Cards
+    {
+        for (int i = 0; i < x; i++)
+        {
+            yield return new WaitForSeconds(DrawingWaitingTime);
+
+            Instantiate(CardToHand, transform.position, transform.rotation);
+        }
+        //Debug.Log("deckSize" + deckSize);
+    }
 }
