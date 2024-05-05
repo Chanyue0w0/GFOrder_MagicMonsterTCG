@@ -7,7 +7,8 @@ public class DisplayCard : MonoBehaviour
 {
 
     //public List<Card> displayCard = new List<Card>();
-    public int displayID = 0;
+    public Card displayCard = new Card();
+    public int displayID = 0;//id-1
 
     public int id;
     public string cardName;
@@ -28,11 +29,16 @@ public class DisplayCard : MonoBehaviour
 
     public bool cardBack;//卡背是否啟用
     public GameObject cardBackObject;
-    //public static bool staticCardBack;//卡背是否啟用 static ，以供全域使用，不須一直尋找並抓取該物件
+
+    public GameObject Hand;
+    public int numberOfCardsInDeck;
 
 
     void Start()
     {
+
+        Hand = GameObject.Find("MyHands");
+
         DisplayCardInfo();
 
 
@@ -56,21 +62,22 @@ public class DisplayCard : MonoBehaviour
     {
         if (displayID <= CardDatabase.cardList.Count) //displayID 並未超出index
         {
-            Card card = CardDatabase.cardList[displayID];
+            numberOfCardsInDeck = PlayerDeck.deckSize;
 
-            nameText.text = "" + card.cardName;
-            costText.text = "" + card.cost;
-            if (card.ability1_Descrpition != "")//若有技能
-                ability1_Text.text = "" + card.ability1_Descrpition + "\n (Power: " + card.ability1_power + ")";
+            displayCard = CardDatabase.cardList[displayID];
+            nameText.text = "" + displayCard.cardName;
+            costText.text = "" + displayCard.cost;
+            if (displayCard.ability1_Descrpition != "")//若有技能
+                ability1_Text.text = "" + displayCard.ability1_Descrpition + "\n (Power: " + displayCard.ability1_power + ")";
             else
                 ability1_Text.text = "";
 
-            if (card.ability2_Descrpition != "")//若有技能
-                ability2_Text.text = "" + card.ability2_Descrpition + "\n (Power: " + card.ability2_power + ")";
+            if (displayCard.ability2_Descrpition != "")//若有技能
+                ability2_Text.text = "" + displayCard.ability2_Descrpition + "\n (Power: " + displayCard.ability2_power + ")";
             else
                 ability2_Text.text = "";
             //thisImage = 
-            artImage.sprite = Resources.Load<Sprite>(card.imagePath);
+            artImage.sprite = Resources.Load<Sprite>(displayCard.imagePath);
         }
         else
         {
@@ -80,16 +87,34 @@ public class DisplayCard : MonoBehaviour
 
     void Update()
     {
+        if (this.transform.parent == Hand.transform.parent)
+        {
+            cardBack = false;
+        }
+
+        if(CompareTag("Clone"))
+        {
+            displayID = PlayerDeck.staticDeck[numberOfCardsInDeck - 1].id -1;
+            numberOfCardsInDeck--;
+            PlayerDeck.deckSize--;
+            cardBack = false;
+            this.tag = "Untagged";
+            Debug.Log("deckSize" + PlayerDeck.deckSize);
+        }
+
+        DisplayCardInfo();
+
         if (cardBack)
             cardBackObject.SetActive(true);
         else
             cardBackObject.SetActive(false);
+
+        
         //staticCardBack = cardBack;
         //if (cardBack != staticCardBack)
         //{ 
         //    staticCardBack = cardBack;
         //    Debug.Log("staticCardBack updated to: " + staticCardBack);
         //}
-
     }
 }
