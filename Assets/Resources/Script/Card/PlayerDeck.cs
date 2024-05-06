@@ -9,6 +9,7 @@ public class PlayerDeck : MonoBehaviour
     private Card tmp = new Card();
 
     public int x;
+    public int drawAmount = 5;
     public static int deckSize = 40;
     public float DrawingWaitingTime = 0.5f;
 
@@ -44,7 +45,8 @@ public class PlayerDeck : MonoBehaviour
 
     IEnumerator StartGame()//Draw 5 Cards
     {
-        for (int i = 0; i < 5; i++)
+
+        for (int i = 0; i < drawAmount; i++)
         {
             yield return new WaitForSeconds(DrawingWaitingTime);
 

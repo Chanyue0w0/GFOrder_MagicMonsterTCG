@@ -47,6 +47,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6491928174894451407}
   - component: {fileID: 1495132891756722620}
+  - component: {fileID: 7399167738668490743}
+  - component: {fileID: 7911715960169689612}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -87,6 +89,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef7f273d62ac0c4da67d6b02adddbc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayCard:
+    id: 0
+    cardName: 
+    cost: 0
+    mana: 0
+    ability1_power: 0
+    ability2_power: 0
+    ability1_Descrpition: 
+    ability2_Descrpition: 
+    drawXcards: 0
+    addXmaxMana: 0
+    imagePath: 
+    thisImage: {fileID: 0}
+    color: 
+    returnXcards: 0
+    healXpower: 0
+    spell: 0
+    damageDealtBySpell: 0
   displayID: 0
   id: 0
   cardName: 
@@ -104,6 +124,61 @@ MonoBehaviour:
   artImage: {fileID: 6491928176346815838}
   cardBack: 0
   cardBackObject: {fileID: 4553736937584212930}
+  Hand: {fileID: 0}
+  numberOfCardsInDeck: 0
+--- !u!114 &7399167738668490743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491928174894451404}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdf6591086c50748b030903f1df9bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7911715960169689612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491928174894451404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6491928174894451404}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6491928174894451404}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6491928175098348475
 GameObject:
   m_ObjectHideFlags: 0
